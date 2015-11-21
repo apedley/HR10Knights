@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
-
+  grunt.loadNpmTasks('grunt-protractor-runner');
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -68,11 +68,28 @@ module.exports = function(grunt) {
           
         }
       }
+    },
+    protractor: {
+      options: {
+        configFile: "test/end2end/conf.js", // Default config file 
+        keepAlive: true, // If false, the grunt process stops when the test fails. 
+        noColor: false, // If true, protractor will not use colors in its output. 
+        args: {
+        // Arguments passed to the command 
+        }
+      },
+      your_target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+        options: {
+          configFile: "test/end2end/conf.js", // Target-specific config file 
+          args: {} // Target-specific arguments 
+        }
+      }
     }
   });
 
   grunt.registerTask('test', [
-    'mochaTest'
+    'mochaTest',
+    'protractor'
   ]);
 
   grunt.registerTask('default', [

@@ -10,13 +10,13 @@
     <section layout="row" layout-sm="column" layout-align="center center" ng-show='showAddTaskButton'>
       <md-button 
         class="md-raised md-primary" 
-        ng-click="showTaskForm=true; showAddTaskButton=false">
+        ng-click="showTaskForm=true; showAddTaskButton=false" id="addTask">
         Add Task
       </md-button>
     </section>
 
 
-    <md-content layout-padding ng-show='showTaskForm' class="fx-zoom-normal fx-speed-500">
+    <md-content layout-padding ng-show='showTaskForm' id='showTaskForm' class="fx-zoom-normal fx-speed-500">
       <md-icon 
         id="closeFormBtn" 
         ng-click="resetTaskDetails()" 
@@ -49,7 +49,8 @@
         </md-input-container>
         <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
           <md-button
-            class="button md-raised md-primary" 
+            class="button md-raised md-primary"
+            id="addTaskButton" 
             ng-click="updateTask(task);  resetTaskDetails();">
             Submit
           </md-button>

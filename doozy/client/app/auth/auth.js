@@ -14,7 +14,7 @@ angular.module('app.auth', [])
         $location.path('/tasks');
       })
       .catch(function (error) {
-        alert(error.data);
+        console.error(error.data);
         console.error(error);
       });
   };
@@ -26,7 +26,7 @@ angular.module('app.auth', [])
         $location.path('/tasks');
       })
       .catch(function (error) {
-        alert(error.data);
+        console.error(error.data);
         console.error(error);
       });
   };
