@@ -9,6 +9,7 @@ con.db.dropDatabase(function(err, result) {
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: ['sage.js'],
+  getPageTimeout: 20000,
   multiCapabilities: [{
     'browserName': 'firefox'
   }, {
