@@ -1,12 +1,10 @@
 describe('Sage', function() {
   var userString = 'testuser' + Math.floor(Math.random()*100000000);
-  var randTask = Math.floor(Math.random()*100000000);
+
   it('should test in a test environment', function() {
     expect(process.env.NODE_ENV).toEqual('test');
   });
-
   describe('auth', function() {
-    
     it('loads', function() {
       browser.get('http://localhost:3000/#/signin');
       expect(element(by.css('.subheader')).getText()).toEqual('Sign In');
@@ -45,11 +43,12 @@ describe('Sage', function() {
       expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/tasks');
     });
 
+    it('has an add form', function() {
+      element(by.id('addTask')).click();
+      expect(element(by.id('addTaskButton')).isPresent()).toEqual(true);
+    });
   });
-  // describe('tasks', function() {
-  //   it('has an add form', function() {
-  //     element(by.id('addTask')).click();
-  //     expect(element(by.id('addTaskButton')).isPresent()).toEqual(true);
-  //   });
-  // });
+  describe('tasks', function() {
+
+  });
 });
